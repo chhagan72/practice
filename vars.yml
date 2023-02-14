@@ -1,0 +1,10 @@
+--- # My variable playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: httpd, tree, git
+  tasks:
+    - name: install applications and servers
+      action: yum name='{{pkgname}}' state=installed

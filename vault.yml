@@ -1,0 +1,13 @@
+--- # My condition playbook on remove application
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: remove apache server on debion
+      command: apt-get -y remove apache2
+      when: ansible_os_family == "Debion"
+    - name: remove apache server on redhat
+      command: yum -y remove httpd
+      when: ansible_os_family == "RedHat"
+

@@ -1,0 +1,8 @@
+--- # My first test task playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install HTTPD on linux
+      action: yum name=httpd state=installed

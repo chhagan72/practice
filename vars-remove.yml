@@ -1,0 +1,10 @@
+--- # My remove application playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    rmpkgname: httpd, git, tree
+  tasks:
+    - name: The remove server and applications
+      action: yum name='{{rmpkgname}}' state=removed

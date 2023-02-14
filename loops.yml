@@ -1,0 +1,13 @@
+--- # My loops playbok
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Add uaer in my node
+      user: name='{{item}}' state=present
+      with_items:
+        - Chhagan
+        - bhupender
+        - myuser
+        - goodname

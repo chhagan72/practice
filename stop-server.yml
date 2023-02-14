@@ -1,0 +1,8 @@
+--- # My stop service playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: httpd service are stop
+      action: service name=httpd state=stopped
