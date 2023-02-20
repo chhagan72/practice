@@ -1,0 +1,19 @@
+---
+  # Play1 - WebServer related tasks
+  - name: Play Web - Create apache directories and username in web servers
+    hosts: developer
+    become: yes
+    connection: ssh
+    become_user: root
+    tasks:
+      - name: create username apacheadm
+        user:
+          name: ck11
+          group: ckpro
+          shell: /bin/bash
+          home: /home
+
+      - name: install httpd
+        yum:
+          name: httpd
+          state: installed

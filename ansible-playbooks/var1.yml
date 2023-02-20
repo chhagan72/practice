@@ -1,0 +1,23 @@
+---
+  - name: Playbook
+    hosts: developer
+    become: yes
+    become_user: ck1
+    vars:
+       key_file:  /etc/apache2/ssl/mywebsite.key
+       cert_file: /etc/apache2/ssl/mywebsite.cert
+       server_name: www.mywebsite.com
+    tasks:
+      - name: ensure apache is at the latest version
+        yum:
+          name: httpd
+          state: installed
+      ### SOME MORE TASKS WOULD COME HERE ###
+      # you can refer the variable you have defined earlier like this #i
+      # "{{key_file}}"  (or) "{{cert_file}}" (or) "{{server_name}}" #
+      ##
+    handlers:
+      - name: ensure apache is running
+        service:
+          name: httpd
+          state: started

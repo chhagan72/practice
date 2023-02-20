@@ -1,13 +1,13 @@
---- # My loops playbok
-- hosts: demo
-  user: ansible
+--- #My loops playbook
+- hosts: developer
+  user: ck1
   become: yes
   connection: ssh
   tasks:
-    - name: Add uaer in my node
+    - name: add a list of users
       user: name='{{item}}' state=present
       with_items:
-        - Chhagan
-        - bhupender
-        - myuser
-        - goodname
+        - ckraj
+        - sachin-tendulkar
+        - chhagan
+        - vasco-d-gama
